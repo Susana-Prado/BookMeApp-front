@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import stage from '../../resources/img/stage.png'
+import venue from '../../resources/img/venue.png'
 
 export default function VenueProfile() {
     return (
@@ -23,7 +23,7 @@ export default function VenueProfile() {
                 </div>
            </div>
            <div className="right-side">
-           <img className="stage" src={stage} alt="stage" />   
+           <img className="venue" src={venue} alt="venue" />   
            </div>
            <div>
                <p>Bookings</p>

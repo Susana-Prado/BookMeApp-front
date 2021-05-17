@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import avatar from '../../resources/img/avatar.png'
+import promoter from '../../resources/img/promoter.png'
 
 export default function PromoterProfile() {
     return (
@@ -17,7 +17,7 @@ export default function PromoterProfile() {
                 </div>
            </div>
            <div className="right-side">
-           <img className="avatar" src={avatar} alt="avatar" />   
+           <img className="promoter" src={promoter} alt="promoter" />   
            </div>
            <div>
                <p>Bookings</p>

@@ -77,6 +77,7 @@ export default class SignUpVenueForm extends Component  {
       return (
         <div className="form-container">
         <form className="signup-form" onSubmit={(e) => this.handleSubmit(e)}>
+        <div className="left-side">
           <div className="form-item">
             {/* <label htmlFor="name">Name: </label> */}
             <input type="text" placeholder="Name (required)" name="name" value={fields.name} onChange={(e) => this.handleChange(e)} />
@@ -136,7 +137,8 @@ export default class SignUpVenueForm extends Component  {
             {/* <label htmlFor="license">License: </label> */}
             <input type="text" placeholder="License (required)" name="license" value={fields.license} onChange={(e) => this.handleChange(e)} />
           </div>
-
+          </div>
+          <div className="right-side">
           <div className="form-item">
             {/* <label htmlFor="date">Date: </label> */}
             <input type="date" placeholder="Date" name="date" value={fields.date} onChange={(e) => this.handleChange(e)} />
@@ -183,9 +185,10 @@ export default class SignUpVenueForm extends Component  {
             </select>
           </div>         
          
-          <Button type="submit">
+          <Button className="" type="submit">
            Create Venue
           </Button>
+          </div>
         </form>
         </div>
       )
