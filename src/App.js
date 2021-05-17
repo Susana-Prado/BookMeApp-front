@@ -1,4 +1,6 @@
-import { Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+
 import './App.css';
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         <Route exact path='/search' component={Search}  />
         <Route exact path='/results' component={Results}  />
         <Route exact path='/venue/:id' component={VenueDetails}  />
+        <Route path="*" component={ErrorPage} />
       </Switch>
     </div>
     
