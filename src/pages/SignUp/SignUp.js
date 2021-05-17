@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import Navigation from '../components/Navigation/Navigation';
+import Navigation from '../../components/Navigation/Navigation';
 import './SignUp.css';
 
 <h1>Sign Up</h1>

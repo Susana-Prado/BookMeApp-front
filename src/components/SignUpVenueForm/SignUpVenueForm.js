@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import './SignUpVenueForm.css';
 const EMAIL_PATTERN = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ 
 
 
@@ -162,25 +163,25 @@ export default class SignUpVenueForm extends Component  {
           </div>
 
           <div className="form-item">
-          <label htmlFor="technicians">Technicians </label>
+          <label htmlFor="technicians">Technicians: </label>
             <input type="checkbox" name="technicians" value={fields.technicians} onChange={(e) => this.handleChange(e)} />
           </div>
 
-          {/* <div className="form-item">
+          <div className="form-item">
           <label htmlFor="genre">Genre:</label>
             <select name="genre" value={fields.genre} onChange={(e) => this.handleChange(e)}>
-              <option value={fields.genre.All}>All</option>
-              <option value={fields.genre.Metal/Rock/Punk/Alternative}>Metal/Rock/Punk/Alternative</option>
-              <option value={fields.genre.Blues/Rock}>Blues/Rock</option>
-              <option value={fields.genre.HipHop/Rap}>HipHop/Rap</option>
-              <option value={fields.genre.Jazz}>Jazz</option>
-              <option value={fields.genre.R&B/Soul}>R&B/Soul</option>
-              <option value={fields.genre.Latin}>Latin</option>
-              <option value={fields.genre.Folk/Acoustic}>Folk/Acoustic</option>
-              <option value={fields.genre.Electronic}>Electronic</option>
-              <option value={fields.genre.Experimental}>Experimental</option>
+              <option >All</option>
+              <option >Metal/Rock/Punk/Alternative</option>
+              <option >Blues/Rock</option>
+              <option >HipHop/Rap</option>
+              <option >Jazz</option>
+              <option >R&B/Soul</option>
+              <option >Latin</option>
+              <option >Folk/Acoustic</option>
+              <option >Electronic</option>
+              <option >Experimental</option>
             </select>
-          </div>          */}
+          </div>         
          
           <Button type="submit">
            Create Venue
