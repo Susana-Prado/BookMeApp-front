@@ -1,11 +1,8 @@
 import { Route, Switch } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import Navigation from './components/Navigation/Navigation';
-import Search from './pages/Search';
-
-
 import './App.css';
-import Search from './pages/Search';
+import Search from './pages/SearchPage/Search';
 
 function App() {
   return (
@@ -19,7 +16,6 @@ function App() {
         <Route exact path='/login' component={Login}  />
         <Route exact path='/promoter-profile' component={Profile}  />
         <Route exact path='/venue-profile' component={Profile}  />
-
         <Route exact path='/results' component={Results}  />
         <Route exact path='/venue/:id' component={VenueDetails}  /> */}
         <Route path="/search" component={Search} />
