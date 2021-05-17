@@ -7,27 +7,27 @@ import './App.css';
 import Search from './pages/SearchPage/Search';
 import HomePage from './pages/HomePage/HomePage';
 import VenueDetails from './pages/VenueDetails/VenueDetails';
+import Login from './pages/Login';
+import PromoterProfile from './pages/PromoterProfile/PromoterProfile';
+import VenueProfile from './pages/VenueProfile/VenueProfile';
 
 function App() {
   return (
     <div className="App">
-    <Navigation/>
+      <Navigation />
       <Switch>
-        {/*   
-        <Route exact path='/login' component={Login}  />
-        <Route exact path='/promoter-profile' component={Profile}  />
-        <Route exact path='/venue-profile' component={Profile}  />
-        */}
-        <Route exact path='/' component={HomePage}  />
-        <Route exact path='/signup-promoter' component={SignUpDetails}  />
-        <Route exact path='/signup-venue' component={SignUpDetails}  />
-        <Route exact path='/signup' component={SignUp}  />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup-promoter" component={SignUpDetails} />
+        <Route exact path="/signup-venue" component={SignUpDetails} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/venue-profile" component={VenueProfile} />
+        <Route exact path="/promoter-profile" component={PromoterProfile} />
         <Route path="/search" component={Search} />
-        <Route exact path='/venue/:id' component={VenueDetails}  /> 
+        <Route exact path="/venue/:id" component={VenueDetails} />
         <Route path="*" component={ErrorPage} />
       </Switch>
     </div>
-    
   );
 }
 
