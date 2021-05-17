@@ -17,6 +17,7 @@ export default class SearchForm extends Component {
 
   handleSubmit(event){
       event.preventDefault();
+      console.log(this.state.fields)
       this.props.showResults(this.state.fields);
       this.setState({
         fields: {
@@ -24,9 +25,17 @@ export default class SearchForm extends Component {
             city:'',
             capacity:'',
             date:''
+        },
+        errors:{
+            name: null,
+            calories: null,
+            image: null,
+            quantity: null
         }
       })
   }
+
+ 
 
   handleChange(event) {
     const {name, value} = event.target;
@@ -42,36 +51,36 @@ export default class SearchForm extends Component {
     const {fields} = this.state;
     return (
       <div className="search-container">
-        <form onsubmit={(e) => this.handleSubmit(e)} action="/results" method="POST">
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <div className="input-container">
-            <label htmlFor="">Name</label>
-            <input type="text" />
+            <label htmlFor="name">Name</label>
+            <input type="text" value={fields.name} onChange={(e) => this.handleChange(e)}/>
           </div>
           <div className="input-container">
-            <label htmlFor="">City</label>
+            <label htmlFor="city">City</label>
             <select name="city" id="city">
-              <option value="Barcelona">Barcelona</option>
-              <option value="Madrid">Madrid</option>
-              <option value="Madrid">Bilbao</option>
+              <option value={fields.city} onChange={(e) => this.handleChange(e)}>Barcelona</option>
+              <option value={fields.city} onChange={(e) => this.handleChange(e)}>Madrid</option>
+              <option value={fields.city} onChange={(e) => this.handleChange(e)}>Bilbao</option>
             </select>
           </div>
           <div className="input-container">
-            <label htmlFor="">Capacity</label>
+            <label htmlFor="capacity">Capacity</label>
             <select name="capacity" id="capacity">
-              <option value="0-150">0-150 p</option>
-              <option value="150-400">150-400 p</option>
-              <option value="400-800">400-800 p</option>
-              <option value="800-1200">800-1200 p</option>
-              <option value="1200-2000">1200-2000 p</option>
-              <option value="2000-5000">2000-5000 p</option>
+              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>0-150 p</option>
+              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>150-400 p</option>
+              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>400-800 p</option>
+              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>800-1200 p</option>
+              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>1200-2000 p</option>
+              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>2000-5000 p</option>
             </select>
           </div>
           <div className="input-container">
-            <label htmlFor="">Date</label>
-            <input type="date" />
+            <label htmlFor="date">Date</label>
+            <input type="date" value={fields.date} onChange={(e) => this.handleChange(e)}/>
           </div>
 
-          <Button variant="primary">Search</Button>
+          <Button variant="primary" type="submit">Search</Button>
         </form>
       </div>    
     );

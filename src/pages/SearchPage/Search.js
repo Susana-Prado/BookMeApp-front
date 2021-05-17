@@ -16,7 +16,16 @@ export default class Search extends Component {
   componentDidMount(){
     this.VenueService.get()
     .then(response => {
-      console.log(response.data);
+      this.setState({venues: response.data})
+    })
+    .catch(err => console.error(err))
+  }
+
+
+  showResults(searchdata){
+    console.log(searchdata);
+    this.VenueService.getFiltered(searchdata)
+    .then(response => {
       this.setState({venues: response.data})
     })
     .catch(err => console.error(err))
@@ -25,7 +34,7 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <SearchForm />
+        <SearchForm showResults = {(results) => this.showResults(results)}  />
         <VenueCard />
       </div>
     );
