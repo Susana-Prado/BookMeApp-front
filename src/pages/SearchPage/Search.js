@@ -5,9 +5,8 @@ import VenueCard from '../../components/VenueCard/VenueCard';
 
 export default class Search extends Component {
 
-
   showResults(){
-    
+
   }
 
   render() {

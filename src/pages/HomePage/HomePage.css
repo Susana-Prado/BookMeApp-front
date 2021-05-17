@@ -1,0 +1,55 @@
+.first-section {
+  height: 100vh;
+  background-image: url('../../resources/img/pexels-vishnu-r-nair-1105666.jpg');
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.second-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.second-section p {
+    font-size: 2rem;
+}
+
+.second-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+img {
+  width: 300px;
+  margin-right: 100px;
+}
+
+.descriptions {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.descriptions p{
+    margin-bottom: 50px;
+}
+
+.third-section{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.third-section img{
+    width: 200px;
+    margin-bottom: 50px;
+}
