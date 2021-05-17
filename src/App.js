@@ -6,19 +6,22 @@ import SignUpDetails from './pages/SignUpDetails';
 import './App.css';
 import Search from './pages/SearchPage/Search';
 import HomePage from './pages/HomePage/HomePage';
+import Login from './pages/Login'
+import PromoterProfile from './pages/PromoterProfile/PromoterProfile';
+import VenueProfile from './pages/VenueProfile/VenueProfile';
 
 function App() {
   return (
     <div className="App">
     <Navigation/>
       <Switch>
-        {/*   
-        <Route exact path='/login' component={Login}  />
-        <Route exact path='/promoter-profile' component={Profile}  />
-        <Route exact path='/venue-profile' component={Profile}  />
+        {/* 
         <Route exact path='/venue/:id' component={VenueDetails}  /> */}
         <Route exact path='/' component={HomePage}  />
+        <Route exact path='/login' component={Login}  />
         <Route path="/search" component={Search} />
+        <Route exact path='/venue-profile' component={VenueProfile}  />
+        <Route exact path='/promoter-profile' component={PromoterProfile}  />
         <Route exact path='/signup-promoter' component={SignUpDetails}  />
         <Route exact path='/signup-venue' component={SignUpDetails}  />
         <Route exact path='/signup' component={SignUp}  />
