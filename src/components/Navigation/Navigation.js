@@ -1,7 +1,8 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { withAuth } from '../../context/auth.context';
 
 
-const Navigation = () => {
+const Navigation = (props) => {
     return (
         <Navbar collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>
             <Container>
@@ -11,8 +12,8 @@ const Navigation = () => {
                     <Nav>
                         <Nav.Link href='/'>Home</Nav.Link>
                         <Nav.Link href='/signup'>Signup</Nav.Link>
-                        <Nav.Link href='/'>Home</Nav.Link>
-                        <Nav.Link href='/'>Home</Nav.Link>
+                        <Nav.Link href='/login'>Login</Nav.Link>
+                        <Nav.Link onClick={()=>props.logout()}>Logout</Nav.Link>
                     </Nav>
                    ):
                    (
@@ -29,4 +30,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation;
+export default withAuth(Navigation);

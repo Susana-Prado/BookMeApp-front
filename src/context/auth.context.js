@@ -29,6 +29,7 @@ class AuthProvider extends React.Component {
     }
   }
 
+
   signup = (data) => {
     this.authService
       .signup(data)
@@ -40,7 +41,7 @@ class AuthProvider extends React.Component {
 
   signupVenue = (data) => {
     this.authService
-      .signup(data)
+      .signupVenue(data)
       .then((response) =>
         this.setState({ isLoggedIn: true, user: response.data })
       )
@@ -75,6 +76,7 @@ class AuthProvider extends React.Component {
           isLoggedIn,
           user,
           signup: this.signup,
+          signupVenue: this.signupVenue,
           login: this.login,
           logout: this.logout,
         }}
@@ -90,7 +92,7 @@ const withAuth = (WrappedComponent) => {
       return (
         <Consumer>
           {value => {
-            const { isLoading, isLoggedIn, user, signup, login, logout } =
+            const { isLoading, isLoggedIn, user, signup, login, logout, signupVenue } =
               value;
   
             return (
@@ -101,6 +103,7 @@ const withAuth = (WrappedComponent) => {
                 signup={signup}
                 login={login}
                 logout={logout}
+                signupVenue={signupVenue}
                 {...props}
               />
             );
