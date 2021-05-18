@@ -8,9 +8,10 @@ export default class AuthService{
     })
   }
 
-  signup = (data) => this.instance.post('/signup', data);
+  signup = (data) => this.instance.post('/signup-promoter', data);
+  signupVenue = (data) => this.instance.post('/signup-venue', data);
   login = (data) => this.instance.post('/login', data);
   logout = () => this.instance.post('/logout');
   isLoggedIn = () => this.instance.get('/loggedin');
-  edit = (data) => this.instance.put('/edit', data);
+  //edit = (data) => this.instance.put('/edit', data);
 }

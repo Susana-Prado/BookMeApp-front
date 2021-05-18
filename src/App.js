@@ -11,6 +11,8 @@ import PromoterProfile from './pages/PromoterProfile/PromoterProfile';
 import VenueProfile from './pages/VenueProfile/VenueProfile';
 import SignUpPromoter from './pages/SignUpPromoter';
 import SignUpVenue from './pages/SignUpVenue';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import AnonRoute from './components/AnonRoute/AnonRoute';
 
 function App() {
   return (
@@ -18,14 +20,14 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/signup-promoter" component={SignUpPromoter} />
-        <Route exact path="/signup-venue" component={SignUpVenue} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/venue-profile" component={VenueProfile} />
-        <Route exact path="/promoter-profile" component={PromoterProfile} />
-        <Route path="/search" component={Search} />
-        <Route exact path="/venue/:id" component={VenueDetails} />
+        <AnonRoute exact path="/signup" component={SignUp} />
+        <AnonRoute exact path="/signup-promoter" component={SignUpPromoter} />
+        <AnonRoute exact path="/signup-venue" component={SignUpVenue} />
+        <AnonRoute exact path="/login" component={Login} />
+        <PrivateRoute exact path="/venue-profile" component={VenueProfile} />
+        <PrivateRoute exact path="/promoter-profile" component={PromoterProfile} />
+        <Route exact path="/search" component={Search} />
+        <PrivateRoute exact path="/venue/:id" component={VenueDetails} />
         <Route path="*" component={ErrorPage} />
       </Switch>
     </div>
