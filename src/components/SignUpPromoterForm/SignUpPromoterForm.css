@@ -2,11 +2,11 @@
     margin-top: 400px;    
 }
 body {
-    background: white;
-    display: flex;
+    background: white;    
     min-height: 100vh;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 .form-container {
     width: 360px;
@@ -16,10 +16,12 @@ body {
     padding: 10px;
 }
 .signup-form{
+    width: 100%;
     display: flex;
+    padding: 10px;
     flex-direction: column;
-    justify-content: space-evenly;
-    padding: 10px;  
+    align-content: center;
+    align-items: center;
 }
 .form-item{
     margin: 10px 0 10px 0;
@@ -27,8 +29,3 @@ body {
     font-size: 16px;
     border: 0;    
 }
-button {
-    background: #4caf50;
-    color: white;
-    cursor: pointer;
-  }
