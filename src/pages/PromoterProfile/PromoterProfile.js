@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import promoter from '../../resources/img/promoter.png'
 
-export default function PromoterProfile() {
+export default function PromoterProfile(props) {
     return (
         <div className="container">
             <div className="left-side">

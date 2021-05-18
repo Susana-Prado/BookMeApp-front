@@ -27,7 +27,7 @@ function App() {
         <PrivateRoute exact path="/venue-profile" component={VenueProfile} />
         <PrivateRoute exact path="/promoter-profile" component={PromoterProfile} />
         <PrivateRoute exact path="/search" component={Search} />
-        <PrivateRoute exact path="/venue/:id" component={VenueDetails} />
+        <PrivateRoute exact path="/search/venue/:id" component={VenueDetails} />
         <Route path="*" component={ErrorPage} />
       </Switch>
     </div>

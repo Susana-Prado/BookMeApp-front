@@ -13,7 +13,7 @@ export default function VenueCard({name, image, capacity, rentingPrice, id}) {
             <Card.Text>Capacity: {capacity} pax</Card.Text>
             <Card.Text>Price (base): {rentingPrice} €</Card.Text>
             <Button variant="primary">
-                <a href={`/venue/${id}`}>See details & Book</a>
+                <a href={`/search/venue/${id}`}>See details & Book</a>
             </Button>
           </div>
         </Card.Body>
