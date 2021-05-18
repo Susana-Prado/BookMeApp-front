@@ -8,7 +8,7 @@ function AnonRoute(routeProps) {
 
   const { isLoggedIn, isLoading } = routeProps;
 
-  const { exact, path, redirectPath = "/" } = routeProps;
+  const { exact, path, redirectPath = "/search" } = routeProps;
   const ComponentToShow = routeProps.component;
 
 
