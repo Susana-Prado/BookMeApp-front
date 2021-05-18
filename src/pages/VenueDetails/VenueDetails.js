@@ -1,10 +1,13 @@
 import './VenueDetails.css';
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import VenueService from '../../services/venues.service';
 import VenueInfo from '../../components/VenueInfo/VenueInfo';
+import { withRouter } from 'react-router';
 
 
-export default class VenueDetails extends Component {
+
+class VenueDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,12 +30,20 @@ export default class VenueDetails extends Component {
     .catch((err) => console.error(err))
   }
 
+  bookVenue = async () => {
+    await this.VenueService
+    .bookVenue(this.props.match.params.id)
+  }
+
    
   render() {
     return (
       <div>
         <VenueInfo {...this.state.venue} />
+        <Button variant="primary">Book</Button>
       </div>
     );
   }
 }
+
+export default  withRouter(VenueDetails);
