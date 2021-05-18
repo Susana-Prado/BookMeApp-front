@@ -31,11 +31,17 @@ export default class Search extends Component {
     .catch(err => console.error(err))
   }
 
+  displayVenues(){
+    return this.state.venues.map(venue => {
+      return <VenueCard {...venue} />
+    })
+  }
+
   render() {
     return (
       <div>
         <SearchForm showResults = {(results) => this.showResults(results)}  />
-        <VenueCard />
+        {this.displayVenues()}
       </div>
     );
   }

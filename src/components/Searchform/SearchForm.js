@@ -2,14 +2,32 @@ import React, { Component } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
 import './SearchForm.css';
 
+const capacities = {
+    capacity0: '---',
+    capacity1: '0 - 150',
+    capacity2: '150 - 400',
+    capacity3: '400 - 800',
+    capacity4: '800 - 1200',
+    capacity5: '1200 - 2000',
+    capacity5: '2000 - 5000'
+}
+
+
+const cities = {
+    city0: '---',
+    city1: 'Barcelona',
+    city2: 'Madrid',
+    city3: 'Bilbao'
+}
+
 export default class SearchForm extends Component {
   constructor(props){
       super(props);
       this.state = {
           fields: {
               name:'',
-              city:'',
-              capacity:'',
+              city:'---',
+              capacity:'---',
               date:''
           }
       }
@@ -22,15 +40,15 @@ export default class SearchForm extends Component {
       this.setState({
         fields: {
             name:'',
-            city:'',
-            capacity:'',
+            city:'---',
+            capacity: '---',
             date:''
         },
         errors:{
             name: null,
-            calories: null,
-            image: null,
-            quantity: null
+            city: null,
+            capacity: null,
+            date: null
         }
       })
   }
@@ -54,30 +72,27 @@ export default class SearchForm extends Component {
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <div className="input-container">
             <label htmlFor="name">Name</label>
-            <input type="text" value={fields.name} onChange={(e) => this.handleChange(e)}/>
+            <input type="text" name="name" value={fields.name} onChange={(e) => this.handleChange(e)}/>
           </div>
           <div className="input-container">
             <label htmlFor="city">City</label>
-            <select name="city" id="city">
-              <option value={fields.city} onChange={(e) => this.handleChange(e)}>Barcelona</option>
-              <option value={fields.city} onChange={(e) => this.handleChange(e)}>Madrid</option>
-              <option value={fields.city} onChange={(e) => this.handleChange(e)}>Bilbao</option>
+            <select name="city" id="city" onChange={(e) => this.handleChange(e)}>
+            {Object.values(cities).map(key => (
+                <option key={key} value={key}>{key}</option>
+            ))}
             </select>
           </div>
           <div className="input-container">
             <label htmlFor="capacity">Capacity</label>
-            <select name="capacity" id="capacity">
-              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>0-150 p</option>
-              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>150-400 p</option>
-              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>400-800 p</option>
-              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>800-1200 p</option>
-              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>1200-2000 p</option>
-              <option value={fields.capacity} onChange={(e) => this.handleChange(e)}>2000-5000 p</option>
+            <select name="capacity" id="capacity" onChange={(e) => this.handleChange(e)}>
+            {Object.values(capacities).map(key => (
+                <option key={key} value={key}>{key}</option>
+            ))}
             </select>
           </div>
           <div className="input-container">
             <label htmlFor="date">Date</label>
-            <input type="date" value={fields.date} onChange={(e) => this.handleChange(e)}/>
+            <input type="date" name="date" value={fields.date} onChange={(e) => this.handleChange(e)}/>
           </div>
 
           <Button variant="primary" type="submit">Search</Button>
