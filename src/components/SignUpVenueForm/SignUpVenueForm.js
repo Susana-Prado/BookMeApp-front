@@ -9,7 +9,7 @@ const validators = {
     name: (value) => {
       let message;
       if(!value){
-        message = 'Name is required';
+        message = 'Your name is required.';
       }
   
       return message;
@@ -17,7 +17,7 @@ const validators = {
     email: (value) => {
       let message;
       if(!value){
-        message = 'Email is required';
+        message = 'Your email is required.';
       } else if(!EMAIL_PATTERN.test(value)){
         message = 'Invalid email';
       }
@@ -28,14 +28,33 @@ const validators = {
       let message;
       if(!value){
         message = 'Password is required';
-      } else if(value.length < 3){
-        message = 'Invalid password'
+      } else if(value.length < 4){
+        message = 'Your password must be at least 4 characters long.'
       }
   
       return message;
     },
   }
-  
+
+  const genres = {
+    genre1 : "All",
+    genre2 : "Metal/Rock/Punk/Alternative",
+    genre3 : "Blues/Rock",
+    genre4 : "HipHop/Rap",
+    genre5 : "Jazz",
+    genre6 : "R&B/Soul",
+    genre7 : "Latin",
+    genre8 : "Folk/Acoustic",
+    genre9 : "Electronic",
+    genre10 : "Experimental"  
+  }
+
+  const cities = {
+    city1 : "Barcelona",
+    city2 : "Madrid",
+    city3 : "Bilbao"
+  }
+
 class SignUpVenueForm extends Component  {
     constructor(props){
       super(props);
@@ -43,7 +62,12 @@ class SignUpVenueForm extends Component  {
         fields: {
           name: "",
           email: "",
-          password: ""
+          password: "",
+          address: {
+            street: "",
+            city: "",
+            country: ""
+          }
         },
         errors: {
           name: null,
@@ -56,9 +80,26 @@ class SignUpVenueForm extends Component  {
     handleSubmit(event){
       event.preventDefault();
       console.log(this.state.fields);
-      this.props.signup(this.state.fields);
+      this.props.signupVenue(this.state.fields);
     }
   
+    handleAddressChange(event){
+      const { name, value } = event.target;
+      this.setState({
+        fields: {
+          ...this.state.fields,
+          address: {
+          ...this.state.fields.address,
+          [name]: value
+          }
+        },
+        // errors: {
+        //   ...this.state.errors,
+        //   [name]: validators[name](value)
+        // }
+      })
+    }
+
     handleChange(event){
       const { name, value } = event.target;
       this.setState({
@@ -66,13 +107,13 @@ class SignUpVenueForm extends Component  {
           ...this.state.fields,
           [name]: value
         },
-        errors: {
-          ...this.state.errors,
-          [name]: validators[name](value)
-        }
+        // errors: {
+        //   ...this.state.errors,
+        //   [name]: validators[name](value)
+        // }
       })
     }
-  
+    
     render() {
       const { fields } = this.state;
       return (
@@ -97,12 +138,33 @@ class SignUpVenueForm extends Component  {
           <div className="form-item">
             {/* <label htmlFor="website">Website: </label> */}
             <input type="text" placeholder="website" name="website" value={fields.website} onChange={(e) => this.handleChange(e)} />
-          </div>    
+          </div>   
 
           <div className="form-item">
-            {/* <label htmlFor="email">Location: </label> */}
-            <input type="text" placeholder="Location" name="location" value={fields.location} onChange={(e) => this.handleChange(e)} />
+          {/* <label htmlFor="address">Address:</label> */}
+          <input type="text" placeholder="street" name="street" value={fields.address.street} onChange={(e) => this.handleAddressChange(e)} />
+          </div>
+          <div className="form-item">
+            <select name="city" value={fields.address.city} onChange={(e) => this.handleAddressChange(e)}>
+              {Object.values(cities).map(key => (
+                  <option key={key} value={key}>{key}</option>
+              ))}
+            </select>
+            </div>
+            <div className="form-item">
+            <input type="text" placeholder="country" name="country" value={fields.address.country} onChange={(e) => this.handleAddressChange(e)} />
           </div>   
+          
+          {/* address: {
+                street: String,
+                city: String, enum: ["Barcelona", "Madrid", "Bilbao"],
+                country: String
+                },    */}
+
+          {/* <div className="form-item">
+            <label htmlFor="email">Location: </label>
+            <input type="text" placeholder="Location" name="location" value={fields.location} onChange={(e) => this.handleChange(e)} />
+          </div>    */}
 
           <div className="form-item">
             {/* <label htmlFor="contactInfo">Contact Info: </label> */}
@@ -173,20 +235,13 @@ class SignUpVenueForm extends Component  {
           <div className="form-item">
           <label htmlFor="genre">Genre:</label>
             <select name="genre" value={fields.genre} onChange={(e) => this.handleChange(e)}>
-              <option >All</option>
-              <option >Metal/Rock/Punk/Alternative</option>
-              <option >Blues/Rock</option>
-              <option >HipHop/Rap</option>
-              <option >Jazz</option>
-              <option >R&B/Soul</option>
-              <option >Latin</option>
-              <option >Folk/Acoustic</option>
-              <option >Electronic</option>
-              <option >Experimental</option>
+              {Object.values(genres).map(key => (
+                  <option key={key} value={key}>{key}</option>
+              ))}
             </select>
           </div>         
          
-          <Button className="" type="submit">
+          <Button className="button" type="submit">
            Create Venue
           </Button>
           </div>
