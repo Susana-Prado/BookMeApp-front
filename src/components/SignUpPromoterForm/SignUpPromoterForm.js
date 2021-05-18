@@ -8,7 +8,7 @@ const validators = {
     name: (value) => {
       let message;
       if(!value){
-        message = 'Name is required';
+        message = 'Your name is required';
       }
   
       return message;
@@ -16,7 +16,7 @@ const validators = {
     email: (value) => {
       let message;
       if(!value){
-        message = 'Email is required';
+        message = 'Your email is required.';
       } else if(!EMAIL_PATTERN.test(value)){
         message = 'Invalid email';
       }
@@ -26,13 +26,21 @@ const validators = {
     password: (value) => {
       let message;
       if(!value){
-        message = 'Password is required';
-      } else if(value.length < 3){
-        message = 'Invalid password'
+        message = 'Password is required.';
+      } else if(value.length < 4){
+        message = 'Your password must be at least 4 characters long.'
       }
   
       return message;
     },
+    CIF: (value) => {
+      let message;
+      if(!value){
+        message = 'Your CIF is required';
+      }
+  
+      return message;
+    }
   }
   
 export default class SignUpPromoterForm extends Component  {
@@ -42,12 +50,15 @@ export default class SignUpPromoterForm extends Component  {
         fields: {
           name: "",
           email: "",
-          password: ""
+          password: "",
+          CIF: ""
+        
         },
         errors: {
           name: null,
           email: null,
-          password: null
+          password: null,
+          CIF: null
         }
       }
     }
@@ -55,7 +66,7 @@ export default class SignUpPromoterForm extends Component  {
     handleSubmit(event){
       event.preventDefault();
       console.log(this.state.fields);
-      this.props.signup(this.state.fields);
+      // this.props.signup(this.state.fields);
     }
   
     handleChange(event){

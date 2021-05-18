@@ -8,7 +8,7 @@ const validators = {
     name: (value) => {
       let message;
       if(!value){
-        message = 'Name is required';
+        message = 'Your name is required.';
       }
   
       return message;
@@ -16,7 +16,7 @@ const validators = {
     email: (value) => {
       let message;
       if(!value){
-        message = 'Email is required';
+        message = 'Your email is required.';
       } else if(!EMAIL_PATTERN.test(value)){
         message = 'Invalid email';
       }
@@ -27,14 +27,27 @@ const validators = {
       let message;
       if(!value){
         message = 'Password is required';
-      } else if(value.length < 3){
-        message = 'Invalid password'
+      } else if(value.length < 4){
+        message = 'Your password must be at least 4 characters long.'
       }
   
       return message;
     },
   }
-  
+
+  const genres = {
+    genre1 : "All",
+    genre2 : "Metal/Rock/Punk/Alternative",
+    genre3 : "Blues/Rock",
+    genre4 : "HipHop/Rap",
+    genre5 : "Jazz",
+    genre6 : "R&B/Soul",
+    genre7 : "Latin",
+    genre8 : "Folk/Acoustic",
+    genre9 : "Electronic",
+    genre10 : "Experimental"  
+  }
+
 export default class SignUpVenueForm extends Component  {
     constructor(props){
       super(props);
@@ -65,13 +78,13 @@ export default class SignUpVenueForm extends Component  {
           ...this.state.fields,
           [name]: value
         },
-        errors: {
-          ...this.state.errors,
-          [name]: validators[name](value)
-        }
+        // errors: {
+        //   ...this.state.errors,
+        //   [name]: validators[name](value)
+        // }
       })
     }
-  
+    
     render() {
       const { fields } = this.state;
       return (
@@ -172,20 +185,13 @@ export default class SignUpVenueForm extends Component  {
           <div className="form-item">
           <label htmlFor="genre">Genre:</label>
             <select name="genre" value={fields.genre} onChange={(e) => this.handleChange(e)}>
-              <option >All</option>
-              <option >Metal/Rock/Punk/Alternative</option>
-              <option >Blues/Rock</option>
-              <option >HipHop/Rap</option>
-              <option >Jazz</option>
-              <option >R&B/Soul</option>
-              <option >Latin</option>
-              <option >Folk/Acoustic</option>
-              <option >Electronic</option>
-              <option >Experimental</option>
+              {Object.values(genres).map(key => (
+                  <option key={key} value={key}>{key}</option>
+              ))}
             </select>
           </div>         
          
-          <Button className="" type="submit">
+          <Button className="button" type="submit">
            Create Venue
           </Button>
           </div>
