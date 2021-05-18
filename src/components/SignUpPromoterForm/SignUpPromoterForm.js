@@ -62,7 +62,7 @@ class SignUpPromoterForm extends Component  {
     handleSubmit(event){
       event.preventDefault();
       console.log(this.state.fields);
-      // this.props.signup(this.state.fields);
+      this.props.signup(this.state.fields);
     }
   
     handleChange(event){

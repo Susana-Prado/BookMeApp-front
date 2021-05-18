@@ -49,6 +49,12 @@ const validators = {
     genre10 : "Experimental"  
   }
 
+  const cities = {
+    city1 : "Barcelona",
+    city2 : "Madrid",
+    city3 : "Bilbao"
+  }
+
 class SignUpVenueForm extends Component  {
     constructor(props){
       super(props);
@@ -56,7 +62,12 @@ class SignUpVenueForm extends Component  {
         fields: {
           name: "",
           email: "",
-          password: ""
+          password: "",
+          address: {
+            street: "",
+            city: "",
+            country: ""
+          }
         },
         errors: {
           name: null,
@@ -69,9 +80,26 @@ class SignUpVenueForm extends Component  {
     handleSubmit(event){
       event.preventDefault();
       console.log(this.state.fields);
-      this.props.signup(this.state.fields);
+      this.props.signupVenue(this.state.fields);
     }
   
+    handleAddressChange(event){
+      const { name, value } = event.target;
+      this.setState({
+        fields: {
+          ...this.state.fields,
+          address: {
+          ...this.state.fields.address,
+          [name]: value
+          }
+        },
+        // errors: {
+        //   ...this.state.errors,
+        //   [name]: validators[name](value)
+        // }
+      })
+    }
+
     handleChange(event){
       const { name, value } = event.target;
       this.setState({
@@ -110,12 +138,33 @@ class SignUpVenueForm extends Component  {
           <div className="form-item">
             {/* <label htmlFor="website">Website: </label> */}
             <input type="text" placeholder="website" name="website" value={fields.website} onChange={(e) => this.handleChange(e)} />
-          </div>    
+          </div>   
 
           <div className="form-item">
-            {/* <label htmlFor="email">Location: </label> */}
-            <input type="text" placeholder="Location" name="location" value={fields.location} onChange={(e) => this.handleChange(e)} />
+          {/* <label htmlFor="address">Address:</label> */}
+          <input type="text" placeholder="street" name="street" value={fields.address.street} onChange={(e) => this.handleAddressChange(e)} />
+          </div>
+          <div className="form-item">
+            <select name="city" value={fields.address.city} onChange={(e) => this.handleAddressChange(e)}>
+              {Object.values(cities).map(key => (
+                  <option key={key} value={key}>{key}</option>
+              ))}
+            </select>
+            </div>
+            <div className="form-item">
+            <input type="text" placeholder="country" name="country" value={fields.address.country} onChange={(e) => this.handleAddressChange(e)} />
           </div>   
+          
+          {/* address: {
+                street: String,
+                city: String, enum: ["Barcelona", "Madrid", "Bilbao"],
+                country: String
+                },    */}
+
+          {/* <div className="form-item">
+            <label htmlFor="email">Location: </label>
+            <input type="text" placeholder="Location" name="location" value={fields.location} onChange={(e) => this.handleChange(e)} />
+          </div>    */}
 
           <div className="form-item">
             {/* <label htmlFor="contactInfo">Contact Info: </label> */}
