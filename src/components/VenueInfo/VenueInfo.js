@@ -8,7 +8,7 @@ export default function VenueInfo({name, image, website, address, contactInfo, C
     return (
         <div>
         <div className="info-section">
-            <img src={name} alt="" />
+            <p>{name}</p>
         </div>
 
         <div className="info-section">

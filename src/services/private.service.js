@@ -11,9 +11,6 @@ export default class PrivateService extends Component {
       });
     }
 
-    getPromoter = (id) => this.instance.get('/profile-promoter', id);
-    getVenue= (id) => this.instance.get('/profile-venue', id);
-
     deleteOne = (id) => this.instance.delete(`/${id}`);
     updateOne = (id, data) => this.instance.put(`/${id}`, data);
 }

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { withAuth } from '../../context/auth.context';
 import promoter from '../../resources/img/promoter.png'
 
-export default function PromoterProfile(props) {
+function PromoterProfile(props) {
     return (
         <div className="container">
             <div className="left-side">
                 <div className="profile-detail">
-                        <p>Name:</p>           
+                        <p>{props.user.name}</p>           
                     </div> 
                 <div className="profile-detail">
                         <p>Contact:</p>   
@@ -28,3 +29,5 @@ export default function PromoterProfile(props) {
         </div>
     )
 }
+
+export default withAuth(PromoterProfile);
