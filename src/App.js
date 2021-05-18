@@ -26,8 +26,8 @@ function App() {
         <AnonRoute exact path="/login" component={Login} />
         <PrivateRoute exact path="/venue-profile" component={VenueProfile} />
         <PrivateRoute exact path="/promoter-profile" component={PromoterProfile} />
-        <Route exact path="/search" component={Search} />
-        <PrivateRoute exact path="/venue/:id" component={VenueDetails} />
+        <PrivateRoute exact path="/search" component={Search} />
+        <PrivateRoute exact path="/search/venue/:id" component={VenueDetails} />
         <Route path="*" component={ErrorPage} />
       </Switch>
     </div>
