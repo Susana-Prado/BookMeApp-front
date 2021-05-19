@@ -76,6 +76,17 @@ class EditVenue extends Component {
     })
   }
 
+  handleCheckbox(event){
+    const { name } = event.target;
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        [name]: !this.state[name]
+      }
+    })
+  }
+  
+
   deleteUser = async () => {
     await this.props.deleteVenue()
   }
