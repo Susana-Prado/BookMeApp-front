@@ -11,6 +11,9 @@ export default class PrivateService extends Component {
       });
     }
 
-    deleteOne = (id) => this.instance.delete(`/${id}`);
-    updateOne = (id, data) => this.instance.put(`/${id}`, data);
+    delete = (id) => this.instance.delete(`/${id}`);
+    editPromoter = (data) => this.instance.put(`/edit-promoter/`, data);
+    editVenue = (data) => this.instance.put(`/edit-venue/`, data);
+    deletePromoter = () => this.instance.delete('/delete-promoter');
+    deleteVenue = () => this.instance.delete('/delete-venue');
 }
