@@ -8,14 +8,15 @@ function PromoterProfile(props) {
         <div className="container">
             <div className="left-side">
                 <div className="profile-detail">
-                        <p>{props.user.name}</p>           
+                        <p>Name: {props.user.name}</p>           
                     </div> 
                 <div className="profile-detail">
-                        <p>Contact:</p>   
+                        <p>Email: {props.user.email}</p>   
                 </div>
                 <div className="profile-detail">
-                        <p>CIF:</p>   
+                        <p>CIF:{props.user.CIF}</p>   
                 </div>
+                
            </div>
            <div className="right-side">
            <img className="promoter" src={promoter} alt="promoter" />   
