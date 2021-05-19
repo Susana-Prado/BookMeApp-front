@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
 import { withAuth } from '../../context/auth.context'
-import PrivateService from '../../services/private.service';
-
-
 
 // const validators = {
 //   name: (value) => {
@@ -11,7 +8,6 @@ import PrivateService from '../../services/private.service';
 //     if(!value){
 //       message = 'Username is required';
 //     }
-
 //     return message;
 //   },
 //   image: (value) => {
@@ -19,11 +15,9 @@ import PrivateService from '../../services/private.service';
 //     if(!value){
 //       message = 'Photo is required';
 //     } 
-
 //     return message;
 //   },
 // }
-
 const genres = {
     genre1 : "All",
     genre2 : "Metal/Rock/Punk/Alternative",
@@ -36,7 +30,6 @@ const genres = {
     genre9 : "Electronic",
     genre10 : "Experimental"  
   } 
-
 class EditVenue extends Component {
   constructor(props){
     super(props);
@@ -58,19 +51,16 @@ class EditVenue extends Component {
         technicians: this.props.user.technicians,
         genre: this.props.user.genre      
       },
-
     //   errors: {
     //     name: null,
     //     image: null
     //   }
     }
   }
-
   handleSubmit(event){
     event.preventDefault();
     this.props.editVenue(this.state.fields);
   }
-
   handleChange(event){
     const { name, value, type, files } = event.target;
     this.setState({
@@ -79,12 +69,10 @@ class EditVenue extends Component {
         [name]: type === 'file' ? files[0] : value
       }
     //   ,
-
     //   errors: {
     //     ...this.state.errors,
     //     [name]: type === 'file' ? validators[name](files[0]) : validators[name](value)
     //   }
-      
     })
   }
 
@@ -102,7 +90,6 @@ class EditVenue extends Component {
           <label htmlFor="name">Name: </label>
           <input type="text" name="name" value={fields.name} onChange={(e) => this.handleChange(e)} />
         </div>
-        
         <div className="form-item">
           <label htmlFor="website">Website: </label>
           <input type="text" name="website" value={fields.website} onChange={(e) => this.handleChange(e)} />
@@ -111,72 +98,58 @@ class EditVenue extends Component {
           <label htmlFor="contactInfo">Address: </label>
           <input type="text" name="address" value={fields.address} onChange={(e) => this.handleChange(e)} />
         </div> */}
-
         <div className="form-item">
           <label htmlFor="image">Image: </label>
           <input type="file" name="image" onChange={(e) => this.handleChange(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="contactInfo">Contact info: </label>
           <input type="text" name="contactInfo" value={fields.contactInfo} onChange={(e) => this.handleChange(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="CIF">CIF: </label>
           <input type="text" name="CIF" value={fields.CIF} onChange={(e) => this.handleChange(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="capacity">Capacity: </label>
           <input type="number" name="capacity" value={fields.capacity} onChange={(e) => this.handleChange(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="rentingPrice">Renting price: </label>
           <input type="number" name="rentingPrice" value={fields.rentingPrice} onChange={(e) => this.handleChange(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="rider">Rider: </label>
           <input type="file" name="rider" value={fields.rider} onChange={(e) => this.handleChange(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="conditions">Conditions: </label>
           <input type="text" name="conditions" value={fields.conditions} onChange={(e) => this.handleChange(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="license">License: </label>
           <input type="file" name="license" value={fields.license} onChange={(e) => this.handleChange(e)} />
         </div> 
-
         <div className="form-item">
           <label htmlFor="merch">Merch: </label>
-          <input type="checkbox" name="merch" value={fields.merch} onChange={(e) => this.handleChange(e)} />
+          <input type="checkbox" name="merch" value={fields.merch} onChange={(e) => this.handleCheckbox(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="security">Security: </label>
-          <input type="checkbox" name="security" value={fields.security} onChange={(e) => this.handleChange(e)} />
+          <input type="checkbox" name="security" value={fields.security} onChange={(e) => this.handleCheckbox(e)} />
         </div>    
-
         <div className="form-item">
           <label htmlFor="ticketOffice">Ticket office: </label>
-          <input type="checkbox" name="ticketOffice" value={fields.ticketOffice} onChange={(e) => this.handleChange(e)} />
+          <input type="checkbox" name="ticketOffice" value={fields.ticketOffice} onChange={(e) => this.handleCheckbox(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="production">Production: </label>
-          <input type="checkbox" name="production" value={fields.production} onChange={(e) => this.handleChange(e)} />
+          <input type="checkbox" name="production" value={fields.production} onChange={(e) => this.handleCheckbox(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="technicians">Technicians: </label>
-          <input type="checkbox" name="technicians" value={fields.technicians} onChange={(e) => this.handleChange(e)} />
+          <input type="checkbox" name="technicians" value={fields.technicians} onChange={(e) => this.handleCheckbox(e)} />
         </div>
-
         <div className="form-item">
           <label htmlFor="genre">Genre:</label>
             <select name="genre" value={fields.genre} onChange={(e) => this.handleChange(e)}>
@@ -185,7 +158,6 @@ class EditVenue extends Component {
               ))}
             </select>
           </div> 
-
         <Button type="submit">
             Save changes
         </Button>        
@@ -195,5 +167,4 @@ class EditVenue extends Component {
     )
   }
 }
-
 export default withAuth(EditVenue);

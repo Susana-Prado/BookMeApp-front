@@ -72,7 +72,12 @@ class SignUpVenueForm extends Component  {
           contactInfo: {
             tel: "",
             email: ""
-          }
+          },
+          merch: false,
+          security: false,
+          ticketOffice: false,
+          production: false,
+          technicians: false
         },
         errors: {
           name: null,
@@ -136,6 +141,16 @@ class SignUpVenueForm extends Component  {
       })
     }
     
+    handleCheckbox(event){
+      const { name } = event.target;
+      this.setState({
+        fields: {
+          ...this.state.fields,
+          [name]: !this.state[name]
+        }
+      })
+    }
+
     render() {
       const { fields } = this.state;
       return (
@@ -227,27 +242,27 @@ class SignUpVenueForm extends Component  {
 
           <div className="form-item">
           <label htmlFor="merch">Merch </label>
-            <input type="checkbox" name="merch" value={fields.merch} onChange={(e) => this.handleChange(e)} />
+            <input type="checkbox" name="merch" value={fields.merch} onChange={(e) => this.handleCheckbox(e)} />
           </div>
 
           <div className="form-item">
           <label htmlFor="security">Security </label>
-            <input type="checkbox" name="security" value={fields.security} onChange={(e) => this.handleChange(e)} />
+            <input type="checkbox" name="security" value={fields.security} onChange={(e) => this.handleCheckbox(e)} />
           </div>
 
           <div className="form-item">
           <label htmlFor="ticketOffice">Ticket Office </label>
-            <input type="checkbox" name="ticketOffice" value={fields.ticketOffice} onChange={(e) => this.handleChange(e)} />
+            <input type="checkbox" name="ticketOffice" value={fields.ticketOffice} onChange={(e) => this.handleCheckbox(e)} />
           </div>
 
           <div className="form-item">
           <label htmlFor="production">Production </label>
-            <input type="checkbox" name="production" value={fields.production} onChange={(e) => this.handleChange(e)} />
+            <input type="checkbox" name="production" value={fields.production} onChange={(e) => this.handleCheckbox(e)} />
           </div>
 
           <div className="form-item">
           <label htmlFor="technicians">Technicians: </label>
-            <input type="checkbox" name="technicians" value={fields.technicians} onChange={(e) => this.handleChange(e)} />
+            <input type="checkbox" name="technicians" value={fields.technicians} onChange={(e) => this.handleCheckbox(e)} />
           </div>
 
           <div className="form-item">
