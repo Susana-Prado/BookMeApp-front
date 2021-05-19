@@ -73,7 +73,10 @@ class VenueProfile extends React.Component {
         </div>
 
         <div>
-          <p>Bookings: {this.state.user.bookings}</p>
+          <p>Bookings: </p>
+          {this.state.user && this.state.user.bookings && this.state.user.bookings.map(booking => {
+            return <p>Promoter Name:{booking.promoter.name} - Date: {booking.date}</p>
+          })}
         </div>
         <Button>
           <a href="/edit-venue-profile"> Edit profile info</a>

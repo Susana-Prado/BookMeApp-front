@@ -6,7 +6,7 @@ export default class VenueService extends Component {
   constructor() {
       super();
     this.instance = axios.create({
-      baseURL: `${process.env.REACT_APP_API_URL}/reservations`,
+      baseURL: `${process.env.REACT_APP_API_URL}/reservation`,
       withCredentials: true,
     });
   }
