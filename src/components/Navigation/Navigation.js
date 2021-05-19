@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { withAuth } from '../../context/auth.context';
+import './Navigation.css';
 
 const Navigation = (props) => {
   return (
@@ -9,14 +10,22 @@ const Navigation = (props) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           {props.isLoggedIn ? (
             <Nav>
-              <Nav.Link href="/">Home</Nav.Link>
-              {props.user.capacity ? (
-                <Nav.Link href="/venue-profile">Hi, {props.user.name}</Nav.Link>
-              ) : (
-                <Nav.Link href="/promoter-profile">Hi, {props.user.name}</Nav.Link>
-              )}
+              <div className="container-buttons">
+                <Nav.Link href="/">Home</Nav.Link>
+                <div className="signup-login">
+                  {props.user.capacity ? (
+                    <Nav.Link href="/venue-profile">
+                      Hi, {props.user.name}
+                    </Nav.Link>
+                  ) : (
+                    <Nav.Link href="/promoter-profile">
+                      Hi, {props.user.name}
+                    </Nav.Link>
+                  )}
 
-              <Nav.Link onClick={() => props.logout()}>Logout</Nav.Link>
+                  <Nav.Link onClick={() => props.logout()}>Logout</Nav.Link>
+                </div>
+              </div>
             </Nav>
           ) : (
             <Nav>

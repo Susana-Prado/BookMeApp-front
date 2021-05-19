@@ -7,13 +7,19 @@ const Footer = () => {
     <footer>
       <div className="footer-section">
         <h5>Contact</h5>
-        <p>Telephone</p>
-        <p>Email</p>
+        <p>Telephone: +34 65425895464</p>
+        <p>
+          <a href="mailto:info@bookmeapp.com">info@bookmeapp.com</a>
+        </p>
       </div>
       <div className="footer-section">
         <h5>Why Us</h5>
-        <p>BookMeApp for Promoters</p>
-        <p>BookMeApp for Venues</p>
+        <p>
+          <a href="#">BookMeApp for Promoters</a>
+        </p>
+        <p>
+          <a href="#">BookMeApp for Venues</a>
+        </p>
       </div>
     </footer>
   );
