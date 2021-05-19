@@ -1,6 +1,7 @@
 import { ModalFooter } from 'react-bootstrap';
 import './Footer.css';
 import Logo from '../../resources/img/logo_test03.jpeg.jpg';
+import { FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -19,6 +20,17 @@ const Footer = () => {
         </p>
         <p>
           <a href="#">BookMeApp for Venues</a>
+        </p>
+      </div>
+      <div className="footer-section">
+        <h5>Follow Us</h5>
+        <p>
+          <a href="#">
+            <FaTwitter />
+          </a>
+        </p>
+        <p>
+          <a href="#"><FaInstagram /></a>
         </p>
       </div>
     </footer>
