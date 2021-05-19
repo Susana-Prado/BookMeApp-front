@@ -1,69 +1,80 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { withAuth } from '../../context/auth.context';
-import venue from '../../resources/img/venue.png'
+import venue from '../../resources/img/venue.png';
 
-function VenueProfile(props) {
-    return (
-        <div className="container">
-            <div className="left-side">
+class VenueProfile extends React.Component {
+
+        state = { user: {} }
+
+        componentDidMount() {
+                ///llamar
+        }
+
+  render() {
+
+          return (
+            <div className="container">
+              <div className="left-side">
                 <div className="profile-detail">
-                        <p>Name: {props.user.name}</p>           
-                    </div> 
-                <div className="profile-detail">
-                        <p>Email: {props.user.email}</p>   
+                  <p>Name: {this.state.user.name}</p>
+                </div>
+                <div className="right-side">
+                   <img className="venue" src={this.state.user.image} alt="venue" />   
                 </div>
                 <div className="profile-detail">
-                        <p>CIF: {props.user.CIF}</p>   
+                  <p>Email: {this.state.user.email}</p>
                 </div>
                 <div className="profile-detail">
-                        <p>Website: {props.user.website}</p>   
+                  <p>CIF: {this.state.user.CIF}</p>
                 </div>
                 <div className="profile-detail">
-                        <p>Capacity: {props.user.capacity}</p>   
+                  <p>Website: {this.state.user.website}</p>
                 </div>
                 <div className="profile-detail">
-                        <p>Price: {props.user.rentingPrice} €</p>   
+                  <p>Capacity: {this.state.user.capacity}</p>
                 </div>
                 <div className="profile-detail">
-                        <p>Rider: {props.user.rider} </p>   
+                  <p>Price: {this.state.user.rentingPrice} €</p>
                 </div>
                 <div className="profile-detail">
-                        <p>Conditions: {props.user.conditions} </p>   
+                  <p>Rider: {this.state.user.rider} </p>
                 </div>
                 <div className="profile-detail">
-                        <p>License: {props.user.license} </p>   
+                  <p>Conditions: {this.state.user.conditions} </p>
                 </div>
                 <div className="profile-detail">
-                        <p>Merch: {props.user.merch ? "Yes" : "No"} </p>   
+                  <p>License: {this.state.user.license} </p>
                 </div>
                 <div className="profile-detail">
-                        <p>Security: {props.user.security ? "Yes" : "No"} </p>   
+                  <p>Merch: {this.state.user.merch ? 'Yes' : 'No'} </p>
                 </div>
                 <div className="profile-detail">
-                        <p>Ticket office: {props.user.ticketOffice ? "Yes" : "No"} </p>   
+                  <p>Security: {this.state.user.security ? 'Yes' : 'No'} </p>
                 </div>
                 <div className="profile-detail">
-                        <p>Production: {props.user.production ? "Yes" : "No"} </p>   
+                  <p>Ticket office: {this.state.user.ticketOffice ? 'Yes' : 'No'} </p>
                 </div>
                 <div className="profile-detail">
-                        <p>Technicians: {props.user.technicians ? "Yes" : "No"} </p>   
+                  <p>Production: {this.state.user.production ? 'Yes' : 'No'} </p>
                 </div>
                 <div className="profile-detail">
-                        <p>Genre: {props.user.genre} </p>   
+                  <p>Technicians: {this.state.user.technicians ? 'Yes' : 'No'} </p>
                 </div>
-           </div>
-           <div className="right-side">
-           <img className="venue" src={venue} alt="venue" />   
-           </div>
-           <div>
-               <p>Bookings</p>
-           </div>
-           <Button>           
-                <a href="/edit-venue-profile"> Edit profile info</a>               
-           </Button>
-        </div>
-    )
+                <div className="profile-detail">
+                  <p>Genre: {this.state.user.genre} </p>
+                </div>
+              </div>
+        
+              <div>
+                <p>Bookings: {this.state.user.bookings}</p>
+              </div>
+              <Button>
+                <a href="/edit-venue-profile"> Edit profile info</a>
+              </Button>
+            </div>
+          );
+  }      
 }
 
 export default withAuth(VenueProfile);

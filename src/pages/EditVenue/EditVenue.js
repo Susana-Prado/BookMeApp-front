@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
 import { withAuth } from '../../context/auth.context'
+import PrivateService from '../../services/private.service';
 
 
 
@@ -43,20 +44,19 @@ class EditVenue extends Component {
       fields: {
         name: this.props.user.name,
         image: null,
-        website: "",
-        CIF: "",
-        capacity: "",
-        rentingPrice: "",
-        rider: "",
-        conditions: "",
-        license: "",
-        date: "",
-        merch: "",
-        security: "",
-        ticketOffice: "",
-        production: "",
-        technicians: "",
-        genre: ""        
+        website: this.props.user.website,
+        CIF: this.props.user.CIF,
+        capacity: this.props.user.capacity,
+        rentingPrice: this.props.user.rentingPrice,
+        rider: '',
+        conditions: this.props.user.conditions,
+        license: '',
+        merch: this.props.user.merch,
+        security: this.props.user.security,
+        ticketOffice: this.props.user.ticketOffice,
+        production: this.props.user.production,
+        technicians: this.props.user.technicians,
+        genre: this.props.user.genre      
       },
 
     //   errors: {
@@ -68,19 +68,11 @@ class EditVenue extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    console.log(this.state.fields);
-    const uploadData = new FormData();
-    //uploadData.append('nombre de la clave', 'valor');
-    Object.keys(this.state.fields).forEach(key => {
-      uploadData.append(key, this.state.fields[key]);
-    })
-
-    this.props.editVenue(uploadData);
+    this.props.editVenue(this.state.fields);
   }
 
   handleChange(event){
     const { name, value, type, files } = event.target;
-    console.log(files);
     this.setState({
       fields: {
         ...this.state.fields,
@@ -96,6 +88,9 @@ class EditVenue extends Component {
     })
   }
 
+  deleteUser = async () => {
+    await this.props.deleteVenue()
+  }
   
 
   render() {
@@ -112,17 +107,16 @@ class EditVenue extends Component {
           <label htmlFor="website">Website: </label>
           <input type="text" name="website" value={fields.website} onChange={(e) => this.handleChange(e)} />
         </div>
-        //TODO:FIXME:TODO:FIXME:
         {/* <div className="form-item">
           <label htmlFor="contactInfo">Address: </label>
           <input type="text" name="address" value={fields.address} onChange={(e) => this.handleChange(e)} />
         </div> */}
-        //TODO:FIXME:TODO:FIXME:
+
         <div className="form-item">
           <label htmlFor="image">Image: </label>
           <input type="file" name="image" onChange={(e) => this.handleChange(e)} />
         </div>
-        //TODO:FIXME:TODO:FIXME:
+
         <div className="form-item">
           <label htmlFor="contactInfo">Contact info: </label>
           <input type="text" name="contactInfo" value={fields.contactInfo} onChange={(e) => this.handleChange(e)} />
@@ -150,7 +144,7 @@ class EditVenue extends Component {
 
         <div className="form-item">
           <label htmlFor="conditions">Conditions: </label>
-          <input type="file" name="conditions" value={fields.conditions} onChange={(e) => this.handleChange(e)} />
+          <input type="text" name="conditions" value={fields.conditions} onChange={(e) => this.handleChange(e)} />
         </div>
 
         <div className="form-item">
@@ -193,9 +187,10 @@ class EditVenue extends Component {
           </div> 
 
         <Button type="submit">
-            Save changes?
+            Save changes
         </Button>        
       </form>
+      <Button onClick={() => this.deleteUser()}>Delete User</Button>
       </div>
     )
   }
