@@ -13,6 +13,9 @@ import SignUpPromoter from './pages/SignUpPromoter';
 import SignUpVenue from './pages/SignUpVenue';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AnonRoute from './components/AnonRoute/AnonRoute';
+import EditPromoter from './pages/EditPromoter/EditPromoter';
+import EditVenue from './pages/EditVenue/EditVenue';
+
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
         <AnonRoute exact path="/login" component={Login} />
         <PrivateRoute exact path="/venue-profile" component={VenueProfile} />
         <PrivateRoute exact path="/promoter-profile" component={PromoterProfile} />
+        <PrivateRoute exact path="/edit-promoter-profile" component={EditPromoter} />
+        <PrivateRoute exact path="/edit-venue-profile" component={EditVenue} />
         <PrivateRoute exact path="/search" component={Search} />
         <PrivateRoute exact path="/search/venue/:id" component={VenueDetails} />
         <Route path="*" component={ErrorPage} />

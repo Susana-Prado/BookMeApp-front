@@ -1,7 +1,8 @@
 import React from 'react';
 import './VenueInfo.css';
-import Calendar from '../Calendar/Calendar';
+
 import { Link } from 'react-router-dom';
+
 
 
 export default function VenueInfo({name, image, website, address, contactInfo, CIF, capacity, rentingPrice, rider, conditions, license, merch, security, ticketOffice, production, technicians, genre}) {
@@ -66,7 +67,7 @@ export default function VenueInfo({name, image, website, address, contactInfo, C
             <p>Genre: {genre}</p>
         </div>
     
-        <Calendar />
+       
 
       </div>
     )

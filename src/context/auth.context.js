@@ -14,6 +14,8 @@ class AuthProvider extends React.Component {
 
   authService = new AuthService();
 
+  privateService = new PrivateService();
+
   async componentDidMount() {
     try {
       const result = await this.authService.isLoggedIn();
@@ -66,28 +68,28 @@ class AuthProvider extends React.Component {
   };
 
   editVenue = (data) => {
-    this.PrivateService
+    this.privateService
       .editVenue(data)
       .then((response) => this.setState({ ...this.state, user: response.data }))
       .catch((error) => console.error(error));
   };
 
   editPromoter = (data) => {
-    this.PrivateService
+    this.privateService
       .editPromoter(data)
       .then((response) => this.setState({ ...this.state, user: response.data }))
       .catch((error) => console.error(error));
   };
 
   deleteVenue = () => {
-    this.PrivateService
+    this.privateService
       .deleteVenue()
       .then(() => this.setState({ isLoggedIn: false, user: null }))
       .catch((error) => console.error(error));
   };
 
   deletePromoter = () => {
-    this.PrivateService
+    this.privateService
       .deletePromoter()
       .then(() => this.setState({ isLoggedIn: false, user: null }))
       .catch((error) => console.error(error));

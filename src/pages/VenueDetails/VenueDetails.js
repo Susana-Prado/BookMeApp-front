@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import VenueService from '../../services/venues.service';
 import VenueInfo from '../../components/VenueInfo/VenueInfo';
 import { withRouter } from 'react-router';
+import Calendar from 'react-calendar';
 
 
 
@@ -12,6 +13,7 @@ class VenueDetails extends Component {
     super(props);
     this.state = {
       venue: {},
+      date: new Date()
     };
 
     this.VenueService = new VenueService();
@@ -32,15 +34,19 @@ class VenueDetails extends Component {
 
   bookVenue = async () => {
     await this.VenueService
-    .bookVenue(this.props.match.params.id)
+    .bookVenue(this.props.match.params.id, this.state.date)
   }
-
+  handleDayClick = (e) =>{
+    this.setState({date: e})
+    console.log(e)
+  }
    
   render() {
     return (
       <div>
         <VenueInfo {...this.state.venue} />
-        <Button variant="primary">Book</Button>
+        <Calendar onClickDay={(e)=> this.handleDayClick(e)}/>
+        <Button variant="primary" onClick={()=>this.bookVenue()}>Book</Button>
       </div>
     );
   }

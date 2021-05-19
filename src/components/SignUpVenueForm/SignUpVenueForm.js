@@ -50,6 +50,7 @@ const validators = {
   }
 
   const cities = {
+    city0 : "---",
     city1 : "Barcelona",
     city2 : "Madrid",
     city3 : "Bilbao"
@@ -67,6 +68,10 @@ class SignUpVenueForm extends Component  {
             street: "",
             city: "",
             country: ""
+          },
+          contactInfo: {
+            tel: "",
+            email: ""
           }
         },
         errors: {
@@ -90,6 +95,23 @@ class SignUpVenueForm extends Component  {
           ...this.state.fields,
           address: {
           ...this.state.fields.address,
+          [name]: value
+          }
+        },
+        // errors: {
+        //   ...this.state.errors,
+        //   [name]: validators[name](value)
+        // }
+      })
+    }
+
+    handleContactChange(event){
+      const { name, value } = event.target;
+      this.setState({
+        fields: {
+          ...this.state.fields,
+          contactInfo: {
+          ...this.state.fields.contactInfo,
           [name]: value
           }
         },
@@ -155,12 +177,7 @@ class SignUpVenueForm extends Component  {
             <input type="text" placeholder="country" name="country" value={fields.address.country} onChange={(e) => this.handleAddressChange(e)} />
           </div>   
           
-          {/* address: {
-                street: String,
-                city: String, enum: ["Barcelona", "Madrid", "Bilbao"],
-                country: String
-                },    */}
-
+          
           {/* <div className="form-item">
             <label htmlFor="email">Location: </label>
             <input type="text" placeholder="Location" name="location" value={fields.location} onChange={(e) => this.handleChange(e)} />
@@ -168,8 +185,13 @@ class SignUpVenueForm extends Component  {
 
           <div className="form-item">
             {/* <label htmlFor="contactInfo">Contact Info: </label> */}
-            <input type="text" placeholder="Contact Info" name="contactInfo" value={fields.contactInfo} onChange={(e) => this.handleChange(e)} />
-          </div>        
+            <input type="text" placeholder="phone number" name="tel" value={fields.contactInfo.tel} onChange={(e) => this.handleContactChange(e)} />
+          </div>
+
+          <div className="form-item">
+            {/* <label htmlFor="contactInfo">Contact Info: </label> */}
+            <input type="text" placeholder="email" name="email" value={fields.contactInfo.email} onChange={(e) => this.handleContactChange(e)} />
+          </div>          
 
           <div className="form-item">
             {/* <label htmlFor="CIF">CIF: </label> */}
@@ -201,11 +223,7 @@ class SignUpVenueForm extends Component  {
             <input type="text" placeholder="License (required)" name="license" value={fields.license} onChange={(e) => this.handleChange(e)} />
           </div>
           </div>
-          <div className="right-side">
-          <div className="form-item">
-            {/* <label htmlFor="date">Date: </label> */}
-            <input type="date" placeholder="Date" name="date" value={fields.date} onChange={(e) => this.handleChange(e)} />
-          </div>
+          <div className="right-side">          
 
           <div className="form-item">
           <label htmlFor="merch">Merch </label>
