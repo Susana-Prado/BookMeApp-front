@@ -25,7 +25,7 @@ function PromoterProfile(props) {
                <p>Bookings</p>
            </div>
            <Button>
-               Edit profile info
+               <a href="/edit-promoter-profile"> Edit profile info</a>
            </Button>
         </div>
     )
