@@ -27,8 +27,9 @@ class EditPromoter extends Component {
     super(props);
     this.state = {
       fields: {
-        name: "",
-        image: null
+        name: this.props.user.name,
+        image: null,
+        CIF: this.props.user.CIF
       },
       errors: {
         name: null,
@@ -40,13 +41,45 @@ class EditPromoter extends Component {
   handleSubmit(event){
     event.preventDefault();
     console.log(this.state.fields);
-    const uploadData = new FormData();
-    //uploadData.append('nombre de la clave', 'valor');
-    Object.keys(this.state.fields).forEach(key => {
-      uploadData.append(key, this.state.fields[key]);
+    this.props.editPromoter(this.state.fields);
+  }
+  
+  handleAddressChange(event){
+    const { name, value } = event.target;
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        address: {
+        ...this.state.fields.address,
+        [name]: value
+        }
+      },
+      // errors: {
+      //   ...this.state.errors,
+      //   [name]: validators[name](value)
+      // }
     })
+  }
+  deleteUser = async () => {
+    await this.props.deletePromoter()
+  }
 
-    this.props.editPromoter(uploadData);
+
+  handleContactChange(event){
+    const { name, value } = event.target;
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        contactInfo: {
+        ...this.state.fields.contactInfo,
+        [name]: value
+        }
+      },
+      // errors: {
+      //   ...this.state.errors,
+      //   [name]: validators[name](value)
+      // }
+    })
   }
 
   handleChange(event){
@@ -76,7 +109,7 @@ class EditPromoter extends Component {
           <label htmlFor="name">Name: </label>
           <input type="text" name="name" value={fields.name} onChange={(e) => this.handleChange(e)} />
         </div>
-        //TODO:FIXME:TODO:FIXME:
+        {/* //TODO:FIXME:TODO:FIXME:
         <div className="form-item">
           <label htmlFor="address">Address: </label>
           <input type="text" name="address" value={fields.address} onChange={(e) => this.handleChange(e)} />
@@ -86,7 +119,7 @@ class EditPromoter extends Component {
           <label htmlFor="contactInfo">Contact Info: </label>
           <input type="text" name="contactInfo" value={fields.contactInfo} onChange={(e) => this.handleChange(e)} />
         </div>
-        //TODO:FIXME:TODO:FIXME:
+        //TODO:FIXME:TODO:FIXME: */}
         <div className="form-item">
           <label htmlFor="image">Image: </label>
           <input type="file" name="image" onChange={(e) => this.handleChange(e)} />
@@ -99,7 +132,9 @@ class EditPromoter extends Component {
 
         <Button type="submit">
             Save changes?
-        </Button>        
+        </Button> 
+        <Button onClick={() => this.deleteUser()}>Delete User</Button>
+       
       </form>
       </div>
     )

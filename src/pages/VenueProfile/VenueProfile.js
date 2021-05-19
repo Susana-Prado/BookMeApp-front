@@ -60,7 +60,7 @@ function VenueProfile(props) {
                <p>Bookings</p>
            </div>
            <Button>           
-                <a href="/edit-venue-profile"> Edit profile info</a>               
+                <a href="/edit-venue-profile"> Edit profile</a>               
            </Button>
         </div>
     )
