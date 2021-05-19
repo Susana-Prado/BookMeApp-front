@@ -1,5 +1,6 @@
 import React from 'react';
 import AuthService from '../services/auth.service';
+import PrivateService from '../services/private.service';
 
 
 const { Consumer, Provider } = React.createContext();
@@ -64,6 +65,34 @@ class AuthProvider extends React.Component {
       .catch((error) => console.error(error));
   };
 
+  editVenue = (data) => {
+    this.PrivateService
+      .editVenue(data)
+      .then((response) => this.setState({ ...this.state, user: response.data }))
+      .catch((error) => console.error(error));
+  };
+
+  editPromoter = (data) => {
+    this.PrivateService
+      .editPromoter(data)
+      .then((response) => this.setState({ ...this.state, user: response.data }))
+      .catch((error) => console.error(error));
+  };
+
+  deleteVenue = () => {
+    this.PrivateService
+      .deleteVenue()
+      .then(() => this.setState({ isLoggedIn: false, user: null }))
+      .catch((error) => console.error(error));
+  };
+
+  deletePromoter = () => {
+    this.PrivateService
+      .deletePromoter()
+      .then(() => this.setState({ isLoggedIn: false, user: null }))
+      .catch((error) => console.error(error));
+  };
+
   render() {
     const { isLoggedIn, isLoading, user } = this.state;
 
@@ -79,6 +108,11 @@ class AuthProvider extends React.Component {
           signupVenue: this.signupVenue,
           login: this.login,
           logout: this.logout,
+          editPromoter: this.editPromoter,
+          editVenue: this.editVenue,
+          deletePromoter: this.editPromoter,
+          deletePromoter: this.deletePromoter,
+          deleteVenue: this.deleteVenue
         }}
       >
         {this.props.children}
@@ -92,7 +126,7 @@ const withAuth = (WrappedComponent) => {
       return (
         <Consumer>
           {value => {
-            const { isLoading, isLoggedIn, user, signup, login, logout, signupVenue } =
+            const { isLoading, isLoggedIn, user, signup, login, logout, signupVenue, editPromoter, editVenue, deletePromoter, deleteVenue } =
               value;
   
             return (
@@ -104,6 +138,10 @@ const withAuth = (WrappedComponent) => {
                 login={login}
                 logout={logout}
                 signupVenue={signupVenue}
+                editPromoter={editPromoter}
+                editVenue={editVenue}
+                deletePromoter={deletePromoter}
+                deleteVenue={deleteVenue}
                 {...props}
               />
             );

@@ -11,9 +11,9 @@ export default class VenueService extends Component {
     });
   }
 
-  get = () => this.instance.get('/');
-  getFiltered = (data) => this.instance.post('/', data);
+  get = () => this.instance.get('/search');
+  getFiltered = (data) => this.instance.post('/search', data);
   getOne = (id) => this.instance.get(`/venue/${id}`);
-  deleteOne = (id) => this.instance.delete(`/${id}`);
-  updateOne = (id, data) => this.instance.put(`/${id}`, data);
+  bookVenue = (id) => this.instance.post(`/venue/${id}/book`)
+  deleteBooking= (id) => this.instance.delete(`/booking/${id}`);
 }
