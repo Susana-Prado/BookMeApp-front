@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { withAuth } from '../../context/auth.context';
 import './EditPromoter.css';
-
 
 // const validators = {
 //   name: (value) => {
@@ -17,100 +16,105 @@ import './EditPromoter.css';
 //     let message;
 //     if(!value){
 //       message = 'Photo is required';
-//     } 
+//     }
 
 //     return message;
 //   },
 // }
 
 class EditPromoter extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       fields: {
         name: this.props.user.name,
         image: null,
-        CIF: this.props.user.CIF
+        CIF: this.props.user.CIF,
       },
       errors: {
         name: null,
-        image: null
-      }
-    }
+        image: null,
+      },
+    };
   }
 
-  handleSubmit(event){
+  handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.fields);
+    console.log(this.state.fields)
     this.props.editPromoter(this.state.fields);
   }
-  
-  handleAddressChange(event){
+
+  handleAddressChange(event) {
     const { name, value } = event.target;
     this.setState({
       fields: {
         ...this.state.fields,
         address: {
-        ...this.state.fields.address,
-        [name]: value
-        }
+          ...this.state.fields.address,
+          [name]: value,
+        },
       },
       // errors: {
       //   ...this.state.errors,
       //   [name]: validators[name](value)
       // }
-    })
+    });
   }
   deleteUser = async () => {
-    await this.props.deletePromoter()
-  }
+    await this.props.deletePromoter();
+  };
 
-
-  handleContactChange(event){
+  handleContactChange(event) {
     const { name, value } = event.target;
     this.setState({
       fields: {
         ...this.state.fields,
         contactInfo: {
-        ...this.state.fields.contactInfo,
-        [name]: value
-        }
+          ...this.state.fields.contactInfo,
+          [name]: value,
+        },
       },
       // errors: {
       //   ...this.state.errors,
       //   [name]: validators[name](value)
       // }
-    })
+    });
   }
 
-  handleChange(event){
+  handleChange(event) {
     const { name, value, type, files } = event.target;
-    console.log(files);
     this.setState({
       fields: {
         ...this.state.fields,
-        [name]: type === 'file' ? files[0] : value
-      }
-    //   ,
+        [name]: type === 'file' ? files[0] : value,
+      },
+      //   ,
 
-    //   errors: {
-    //     ...this.state.errors,
-    //     [name]: type === 'file' ? validators[name](files[0]) : validators[name](value)
-    //   }
-      
-    })
+      //   errors: {
+      //     ...this.state.errors,
+      //     [name]: type === 'file' ? validators[name](files[0]) : validators[name](value)
+      //   }
+    });
   }
 
   render() {
     const { fields } = this.state;
     return (
-    <div className="container-edit2">
-      <form className="form-container6" onSubmit={(e) => this.handleSubmit(e)}>
-        <div className="form-item6">
-          <label htmlFor="name">Name: </label>
-          <input type="text" name="name" value={fields.name} onChange={(e) => this.handleChange(e)} />
-        </div>
-        {/* 
+      <div className="container-edit2">
+        <form
+          className="form-container6"
+          onSubmit={(e) => this.handleSubmit(e)}
+        >
+          <div className="form-item6">
+            <label htmlFor="name">Name: </label>
+            <input
+              type="text"
+              name="name"
+              value={fields.name}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
+          {/* 
         <div className="form-item">
           <label htmlFor="address">Address: </label>
           <input type="text" name="address" value={fields.address} onChange={(e) => this.handleChange(e)} />
@@ -120,24 +124,33 @@ class EditPromoter extends Component {
           <label htmlFor="contactInfo">Contact Info: </label>
           <input type="text" name="contactInfo" value={fields.contactInfo} onChange={(e) => this.handleChange(e)} />
         </div> */}
-        <div className="form-item6">
-          <label htmlFor="image">Image: </label>
-          <input type="file" name="image" onChange={(e) => this.handleChange(e)} />
-        </div>
+          <div className="form-item6">
+            <label htmlFor="image">Image: </label>
+            <input
+              type="file"
+              name="image"
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
 
-        <div className="form-item6">
-          <label htmlFor="CIF">CIF: </label>
-          <input type="text" name="CIF" value={fields.CIF} onChange={(e) => this.handleChange(e)} />
-        </div>
+          <div className="form-item6">
+            <label htmlFor="CIF">CIF: </label>
+            <input
+              type="text"
+              name="CIF"
+              value={fields.CIF}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
 
-        <Button className="save" type="submit">
-            Save changes?
-        </Button> 
-        <Button className="alarm" onClick={() => this.deleteUser()}>Delete User</Button>
-       
-      </form>
+          <Button className="save" type="submit">Save Changes
+          </Button>
+        </form>
+        <Button className="alarm" onClick={() => this.deleteUser()}>
+          Delete User
+        </Button>
       </div>
-    )
+    );
   }
 }
 

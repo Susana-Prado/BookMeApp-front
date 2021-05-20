@@ -13,12 +13,9 @@
 }
 
 
-.user{
-    margin-right: 200px;
-}
-
 .profile-detail h3{
     border-bottom: 2px solid grey !important;
+    width: 100%;
 }
 
 .bookings{
