@@ -60,8 +60,14 @@ class EditVenue extends Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    this.props.editVenue(this.state.fields);
+    const uploadData = new FormData();
+    //uploadData.append('nombre de la clave', 'valor');
+    Object.keys(this.state.fields).forEach(key => {
+      uploadData.append(key, this.state.fields[key]);
+    })
+    this.props.editVenue(uploadData);
   }
+
   handleChange(event){
     const { name, value, type, files } = event.target;
     console.log(files[0])
@@ -130,7 +136,7 @@ class EditVenue extends Component {
         </div>
         <div className="form-item">
           <label htmlFor="rider">Rider: </label>
-          <input type="file" name="rider" value={fields.rider} onChange={(e) => this.handleChange(e)} />
+          <input type="file" name="rider" onChange={(e) => this.handleChange(e)} />
         </div>
         <div className="form-item">
           <label htmlFor="conditions">Conditions: </label>
@@ -138,7 +144,7 @@ class EditVenue extends Component {
         </div>
         <div className="form-item">
           <label htmlFor="license">License: </label>
-          <input type="file" name="license" value={fields.license} onChange={(e) => this.handleChange(e)} />
+          <input type="file" name="license" onChange={(e) => this.handleChange(e)} />
         </div> 
         <div className="form-item">
           <label htmlFor="merch">Merch: </label>
