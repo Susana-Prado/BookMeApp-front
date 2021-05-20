@@ -64,6 +64,7 @@ class EditVenue extends Component {
   }
   handleChange(event){
     const { name, value, type, files } = event.target;
+    console.log(files[0])
     this.setState({
       fields: {
         ...this.state.fields,
@@ -85,7 +86,7 @@ class EditVenue extends Component {
     this.setState({
       fields: {
         ...this.state.fields,
-        [name]: !this.state[name]
+        [name]: !this.state.fields[name]
       }
     })
   }
@@ -141,23 +142,23 @@ class EditVenue extends Component {
         </div> 
         <div className="form-item">
           <label htmlFor="merch">Merch: </label>
-          <input type="checkbox" name="merch" value={fields.merch} onChange={(e) => this.handleCheckbox(e)} />
+          <input type="checkbox" name="merch" checked={fields.merch} value={fields.merch} onChange={(e) => this.handleCheckbox(e)} />
         </div>
         <div className="form-item">
           <label htmlFor="security">Security: </label>
-          <input type="checkbox" name="security" value={fields.security} onChange={(e) => this.handleCheckbox(e)} />
+          <input type="checkbox" name="security" checked={fields.security} value={fields.security} onChange={(e) => this.handleCheckbox(e)} />
         </div>    
         <div className="form-item">
           <label htmlFor="ticketOffice">Ticket office: </label>
-          <input type="checkbox" name="ticketOffice" value={fields.ticketOffice} onChange={(e) => this.handleCheckbox(e)} />
+          <input type="checkbox" name="ticketOffice" checked={fields.ticketOffice} value={fields.ticketOffice} onChange={(e) => this.handleCheckbox(e)} />
         </div>
         <div className="form-item">
           <label htmlFor="production">Production: </label>
-          <input type="checkbox" name="production" value={fields.production} onChange={(e) => this.handleCheckbox(e)} />
+          <input type="checkbox" name="production" checked={fields.production} value={fields.production} onChange={(e) => this.handleCheckbox(e)} />
         </div>
         <div className="form-item">
           <label htmlFor="technicians">Technicians: </label>
-          <input type="checkbox" name="technicians" value={fields.technicians} onChange={(e) => this.handleCheckbox(e)} />
+          <input type="checkbox" name="technicians" checked={fields.technicians} value={fields.technicians} onChange={(e) => this.handleCheckbox(e)} />
         </div>
         <div className="form-item">
           <label htmlFor="genre">Genre:</label>
