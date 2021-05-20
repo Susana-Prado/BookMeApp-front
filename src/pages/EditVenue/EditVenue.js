@@ -63,15 +63,14 @@ class EditVenue extends Component {
     event.preventDefault();
     const uploadData = new FormData();
     //uploadData.append('nombre de la clave', 'valor');
-    Object.keys(this.state.fields).forEach(key => {
+    Object.keys(this.state.fields).forEach((key) => {
       uploadData.append(key, this.state.fields[key]);
-    })
+    });
     this.props.editVenue(uploadData);
   }
 
-  handleChange(event){
+  handleChange(event) {
     const { name, value, type, files } = event.target;
-    console.log(files[0])
     this.setState({
       fields: {
         ...this.state.fields,
@@ -90,9 +89,9 @@ class EditVenue extends Component {
     this.setState({
       fields: {
         ...this.state.fields,
-        [name]: !this.state.fields[name]
-      }
-    })
+        [name]: !this.state.fields[name],
+      },
+    });
   }
 
   deleteUser = async () => {
@@ -156,24 +155,24 @@ class EditVenue extends Component {
                   value={fields.CIF}
                   onChange={(e) => this.handleChange(e)}
                 />
-              <div className="form-item4">
-                <label htmlFor="capacity">Capacity: </label>
-                <input
-                  type="number"
-                  name="capacity"
-                  value={fields.capacity}
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </div>
-              <div className="form-item4">
-                <label htmlFor="rentingPrice">Renting price: </label>
-                <input
-                  type="number"
-                  name="rentingPrice"
-                  value={fields.rentingPrice}
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </div>
+                <div className="form-item4">
+                  <label htmlFor="capacity">Capacity: </label>
+                  <input
+                    type="number"
+                    name="capacity"
+                    value={fields.capacity}
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </div>
+                <div className="form-item4">
+                  <label htmlFor="rentingPrice">Renting price: </label>
+                  <input
+                    type="number"
+                    name="rentingPrice"
+                    value={fields.rentingPrice}
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </div>
               </div>
             </div>
             <div className="edit-venue-right">
@@ -265,7 +264,9 @@ class EditVenue extends Component {
           </div>
           <Button type="submit">Save changes</Button>
         </form>
-        <Button className="alarm" onClick={() => this.deleteUser()}>Delete User</Button>
+        <Button className="alarm" onClick={() => this.deleteUser()}>
+          Delete User
+        </Button>
       </div>
     );
   }

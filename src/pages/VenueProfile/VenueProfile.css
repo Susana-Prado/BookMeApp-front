@@ -41,6 +41,7 @@
     background-color: #2b444b;
     border-color: #2b444b;
     transition: none !important;
+    margin:50px 0;
 }
 
 .delete{
@@ -51,4 +52,8 @@
 
 .delete svg{
     cursor: pointer;
+}
+
+.profile-detail img{
+    max-width: 500px;
 }

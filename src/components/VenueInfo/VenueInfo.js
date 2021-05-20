@@ -29,7 +29,7 @@ export default function VenueInfo({
       </div>
       <div className="venue-info">
         <div className="venue-info-left">
-          <div className="info-section">
+          <div className="info-section-image">
             <img src={image} alt="" />
           </div>
         </div>

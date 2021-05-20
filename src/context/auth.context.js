@@ -75,6 +75,7 @@ class AuthProvider extends React.Component {
   };
 
   editPromoter = (data) => {
+    console.log(data)
     this.privateService
       .editPromoter(data)
       .then((response) => this.setState({ ...this.state, user: response.data }))

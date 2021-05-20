@@ -1,3 +1,7 @@
+.details{
+    text-align: center;
+}
+
 .venuedetails {
   margin: 0 100px;
   display: flex;
@@ -8,12 +12,13 @@
 
 .venue-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
 }
 
 .venue-info-left {
   margin-right: 100px;
+  margin-bottom: 100px;
 }
 
 .venue-info-right{
@@ -35,4 +40,8 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.info-section-image img{
+    max-width: 500px;
 }
