@@ -25,15 +25,19 @@ function VenueProfile(props) {
                 <div className="profile-detail">
                         <p>Price: {props.user.rentingPrice} €</p>   
                 </div>
+
                 <div className="profile-detail">
-                        <p>Rider: {props.user.rider} </p>   
+                <p>Rider: <a href={props.user.rider}>Rider</a></p>   
                 </div>
+
                 <div className="profile-detail">
                         <p>Conditions: {props.user.conditions} </p>   
                 </div>
+
                 <div className="profile-detail">
-                        <p>License: {props.user.license} </p>   
-                </div>
+                <p>License: <a href={props.user.license}>License</a></p>   
+                </div>                
+
                 <div className="profile-detail">
                         <p>Merch: {props.user.merch ? "Yes" : "No"} </p>   
                 </div>
