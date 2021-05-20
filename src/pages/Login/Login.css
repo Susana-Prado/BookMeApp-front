@@ -1,6 +1,7 @@
 .form{
     margin-top: 400px;    
 }
+
 body {
     margin-top: 200px;
     background: white;    
@@ -16,7 +17,9 @@ body {
     margin: auto;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     padding: 20px 0 50px 0;
+    text-align: center;
 }
+
 .signup-form3{
     display: flex;
     height: 40% !important;

@@ -285,6 +285,7 @@ class SignUpVenueForm extends Component {
               </div>
 
               <div className="form-item2">
+              <label htmlFor="rider">Rider</label>
                 <input
                   type="file"
                   placeholder="Rider"
@@ -305,6 +306,7 @@ class SignUpVenueForm extends Component {
               </div>
 
               <div className="form-item2">
+              <label htmlFor="license">License</label>
                 <input
                   type="file"
                   placeholder="License"

@@ -1,0 +1,59 @@
+.container-edit {
+  margin-top: 400px;
+  width: 90% !important;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding: 20px 0 50px 0;
+  text-align: center;
+}
+
+.form-container4 {
+  display: flex;
+  height: 40% !important;
+  flex-direction: column !important;
+  align-items: center;
+  padding: 30px;
+}
+
+.flex-edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-item4 {
+  margin: 5px 0 5px 0;
+  padding: 1px;
+  font-size: 16px;
+  border: 0;
+  align-items: center;
+  width: 100%;
+}
+
+.form-item4 input {
+  width: 70%;
+  padding: 7px;
+}
+
+.form-container4 button {
+  padding: 10px 20px;
+  background-color: #2b444b;
+  border-color: #2b444b;
+  transition: none !important;
+}
+
+.edit-venue-left {
+  text-align: left;
+}
+
+.edit-venue-right {
+  text-align: left;
+}
+
+.container-edit .alarm {
+  padding: 10px 20px;
+  background-color: red;
+  border-color: red;
+  transition: none !important;
+}

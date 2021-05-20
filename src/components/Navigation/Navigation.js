@@ -11,6 +11,7 @@ const Navigation = (props) => {
           {props.isLoggedIn ? (
             <Nav>
               <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/search">Search</Nav.Link>
 
               {props.user.capacity ? (
                 <Nav.Link href="/venue-profile">Hi, {props.user.name}</Nav.Link>

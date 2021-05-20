@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
-import { withAuth } from '../../context/auth.context'
+import { withAuth } from '../../context/auth.context';
+import './EditPromoter.css';
 
 
 // const validators = {
@@ -103,37 +104,36 @@ class EditPromoter extends Component {
   render() {
     const { fields } = this.state;
     return (
-    <div className="container">
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-        <div className="form-item">
+    <div className="container-edit2">
+      <form className="form-container6" onSubmit={(e) => this.handleSubmit(e)}>
+        <div className="form-item6">
           <label htmlFor="name">Name: </label>
           <input type="text" name="name" value={fields.name} onChange={(e) => this.handleChange(e)} />
         </div>
-        {/* //TODO:FIXME:TODO:FIXME:
+        {/* 
         <div className="form-item">
           <label htmlFor="address">Address: </label>
           <input type="text" name="address" value={fields.address} onChange={(e) => this.handleChange(e)} />
         </div>
-        //TODO:FIXME:TODO:FIXME:
+        
         <div className="form-item">
           <label htmlFor="contactInfo">Contact Info: </label>
           <input type="text" name="contactInfo" value={fields.contactInfo} onChange={(e) => this.handleChange(e)} />
-        </div>
-        //TODO:FIXME:TODO:FIXME: */}
-        <div className="form-item">
+        </div> */}
+        <div className="form-item6">
           <label htmlFor="image">Image: </label>
           <input type="file" name="image" onChange={(e) => this.handleChange(e)} />
         </div>
 
-        <div className="form-item">
+        <div className="form-item6">
           <label htmlFor="CIF">CIF: </label>
           <input type="text" name="CIF" value={fields.CIF} onChange={(e) => this.handleChange(e)} />
         </div>
 
-        <Button type="submit">
+        <Button className="save" type="submit">
             Save changes?
         </Button> 
-        <Button onClick={() => this.deleteUser()}>Delete User</Button>
+        <Button className="alarm" onClick={() => this.deleteUser()}>Delete User</Button>
        
       </form>
       </div>

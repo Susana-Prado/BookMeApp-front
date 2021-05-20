@@ -23,6 +23,11 @@ video {
   position: absolute;
   top: 300px !important;
   color: white;
+  text-align: center;
+}
+
+.titles h2{
+  color: white;
 }
 
 .titles h1 {
