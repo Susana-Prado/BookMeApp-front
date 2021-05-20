@@ -10,22 +10,17 @@ const Navigation = (props) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           {props.isLoggedIn ? (
             <Nav>
-              <div className="container-buttons">
-                <Nav.Link href="/">Home</Nav.Link>
-                <div className="signup-login">
-                  {props.user.capacity ? (
-                    <Nav.Link href="/venue-profile">
-                      Hi, {props.user.name}
-                    </Nav.Link>
-                  ) : (
-                    <Nav.Link href="/promoter-profile">
-                      Hi, {props.user.name}
-                    </Nav.Link>
-                  )}
+              <Nav.Link href="/">Home</Nav.Link>
 
-                  <Nav.Link onClick={() => props.logout()}>Logout</Nav.Link>
-                </div>
-              </div>
+              {props.user.capacity ? (
+                <Nav.Link href="/venue-profile">Hi, {props.user.name}</Nav.Link>
+              ) : (
+                <Nav.Link href="/promoter-profile">
+                  Hi, {props.user.name}
+                </Nav.Link>
+              )}
+
+              <Nav.Link onClick={() => props.logout()}>Logout</Nav.Link>
             </Nav>
           ) : (
             <Nav>

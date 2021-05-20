@@ -1,5 +1,36 @@
 .cards-container{
-    margin: 100px;
+    margin: 80px 150px;
+}
+
+.card-header{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2b444b;
+}
+
+
+.card-description{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.text-description{
+    text-align: left;
+}
+
+.card-description img{
+    max-width: 200px;
+    margin-right: 50px;
+}
+
+
+.card button{
+    padding: 10px 20px;
+    background-color: #2b444b;
+    border-color: #2b444b;
+    transition: none !important;
 }
 
 a{
@@ -9,6 +40,5 @@ a{
 
 a:hover{
     color: white;
-    text-decoration: underline;
 }
 

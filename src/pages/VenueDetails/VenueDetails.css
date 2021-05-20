@@ -1,0 +1,19 @@
+.react-calendar{
+    margin: 30px 200px;
+}
+
+.venuedetails{
+    margin: 0 1 00px !important;
+}
+
+.details{
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.details .book{
+    padding: 10px 20px;
+    background-color: #2b444b;
+    border-color: #2b444b;
+    transition: none !important;
+}
