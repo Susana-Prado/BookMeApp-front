@@ -61,10 +61,17 @@ class EditVenue extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.editVenue(this.state.fields);
+    const uploadData = new FormData();
+    //uploadData.append('nombre de la clave', 'valor');
+    Object.keys(this.state.fields).forEach(key => {
+      uploadData.append(key, this.state.fields[key]);
+    })
+    this.props.editVenue(uploadData);
   }
-  handleChange(event) {
+
+  handleChange(event){
     const { name, value, type, files } = event.target;
+    console.log(files[0])
     this.setState({
       fields: {
         ...this.state.fields,
@@ -83,9 +90,9 @@ class EditVenue extends Component {
     this.setState({
       fields: {
         ...this.state.fields,
-        [name]: !this.state[name],
-      },
-    });
+        [name]: !this.state.fields[name]
+      }
+    })
   }
 
   deleteUser = async () => {
@@ -175,7 +182,6 @@ class EditVenue extends Component {
                 <input
                   type="file"
                   name="rider"
-                  value={fields.rider}
                   onChange={(e) => this.handleChange(e)}
                 />
               </div>
@@ -193,7 +199,6 @@ class EditVenue extends Component {
                 <input
                   type="file"
                   name="license"
-                  value={fields.license}
                   onChange={(e) => this.handleChange(e)}
                 />
               </div>
