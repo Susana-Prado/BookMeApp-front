@@ -1,7 +1,54 @@
-.container{
-    display:flex;
-    flex-direction: column;
+.user-profile2{
+    display: flex;
+    justify-content: center;
 }
-.left-side{
-    display:flex;
+
+.user-details2{  
+    margin: 0 100px !important; 
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding-bottom: 12px;
+    text-align: left !important;
+}
+
+.user-details2 .profile-detail2{
+    margin-bottom: 50px;
+    border-bottom: 2px solid grey !important;
+}
+
+.user2{
+   
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.bookings{
+    width: 100%;
+    margin-right: 200px;
+    
+}
+
+.bookings h5{
+    padding: 20px 0;
+}
+
+.user-details2 button{
+    width: 200px;
+    padding: 10px 20px;
+    background-color: #2b444b;
+    border-color: #2b444b;
+    transition: none !important;
+}
+
+.delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.delete svg{
+    cursor: pointer;
 }

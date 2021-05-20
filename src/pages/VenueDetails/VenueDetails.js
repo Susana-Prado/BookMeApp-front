@@ -43,10 +43,11 @@ class VenueDetails extends Component {
    
   render() {
     return (
-      <div>
+      <div className="details">
         <VenueInfo {...this.state.venue} />
         <Calendar onClickDay={(e)=> this.handleDayClick(e)}/>
-        <Button variant="primary" onClick={()=>this.bookVenue()}>Book</Button>
+        <Button className="book" variant="primary" onClick={()=>this.bookVenue()}>
+        <a href="/promoter-profile">Book</a></Button>
       </div>
     );
   }

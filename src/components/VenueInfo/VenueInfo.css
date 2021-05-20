@@ -1,3 +1,38 @@
-.venue-info{
-    margin-top: 200px;
+.venuedetails {
+  margin: 0 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+
+}
+
+.venue-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.venue-info-left {
+  margin-right: 100px;
+}
+
+.venue-info-right{
+    color: black;
+}
+
+.venue-info-right a{
+    color: black;
+    text-decoration: none;
+}
+
+h2 {
+  margin-bottom: 50px;
+  color: #2b444b;
+  text-align: left;
+}
+
+.venue-info-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

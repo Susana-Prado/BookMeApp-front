@@ -1,10 +1,17 @@
 footer{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    background-color: grey !important;
+    justify-content: space-around;
+    background-color: #2B444B !important;
+    color: white;
+    padding: 50px 0;
 }
 
 footer img{
     width: 100px;
 }
+
+h5{
+    margin-bottom: 20px;
+}
+

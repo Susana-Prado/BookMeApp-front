@@ -1,0 +1,13 @@
+.navbar{
+    background-color: #2B444B !important;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.containerbuttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

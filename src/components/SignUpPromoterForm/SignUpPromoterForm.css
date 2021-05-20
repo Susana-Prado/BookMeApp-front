@@ -6,24 +6,43 @@ body {
     min-height: 100vh;
 }
 
-.form-container {
-    width: 360px;
+.form-container1 {
+    width: 40% !important;
     background-color: white;
     margin: auto;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    padding: 10px;
+    padding: 20px 0 50px 0;
 }
-.signup-form{
-    width: 100%;
+
+.signup-form1{
     display: flex;
-    padding: 10px;
-    flex-direction: column;
-    align-content: center;
+    height: 40% !important;
+    flex-direction: column !important;
     align-items: center;
 }
-.form-item{
+
+.form-item1{
     margin: 10px 0 10px 0;
     padding: 15px;
     font-size: 16px;
     border: 0;    
 }
+
+.form-item1 input{
+    width: 100%;
+    padding: 7px;
+}
+
+.name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+ .signup-form1 button {
+    padding: 10px 20px;
+    background-color: #2b444b;
+    border-color: #2b444b;
+    transition: none !important;
+  }

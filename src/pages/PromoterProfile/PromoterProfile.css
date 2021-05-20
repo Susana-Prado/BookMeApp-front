@@ -1,17 +1,49 @@
-.container{   
+.user-profile{
+    display: flex;
+    justify-content: center;
+}
+
+.user-details{  
+    margin: 0 100px !important; 
     display: flex;
     flex-direction: column;
-    width: 360px;
-    height: 500px;
-    background-color: white;
-    margin: auto;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    padding: 10px;
-    justify-content: space-around;
+    width: 70%;
+    padding-bottom: 12px;
+    text-align: left !important;
 }
-.left-side{
-    display:flex;
-}
-.right-side{
 
+
+.user{
+    margin-right: 200px;
+}
+
+.profile-detail h3{
+    border-bottom: 2px solid grey !important;
+}
+
+.bookings{
+    margin-right: 200px;
+}
+
+.bookings h5{
+    border-bottom: 2px solid grey !important;
+    padding: 20px 0;
+}
+
+.user-details button{
+    width: 200px;
+    padding: 10px 20px;
+    background-color: #2b444b;
+    border-color: #2b444b;
+    transition: none !important;
+}
+
+.delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.delete svg{
+    cursor: pointer;
 }

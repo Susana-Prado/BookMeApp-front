@@ -65,16 +65,14 @@ const validators = {
     render() {
       const { fields } = this.state;
       return (
-        <div className="form-container">
+        <div className="form-container3">
             <form onSubmit={(e) => this.handleSubmit(e)}>
-            <div className="form-item">
-                {/* <label htmlFor="email">Email: </label> */}
-                <input type="text" placeholder="email" name="email" value={fields.email} onChange={(e) => this.handleChange(e)} />
+            <div className="form-item3">
+                <input type="text" placeholder="Email" name="email" value={fields.email} onChange={(e) => this.handleChange(e)} />
             </div>
     
-            <div className="form-item">
-                {/* <label htmlFor="password">Password: </label> */}
-                <input type="password" placeholder="password" name="password" value={fields.password} onChange={(e) => this.handleChange(e)} />
+            <div className="form-item3">
+                <input type="password" placeholder="Password" name="password" value={fields.password} onChange={(e) => this.handleChange(e)} />
             </div>
             <Button variant="primary" type="submit">
                 Log in
