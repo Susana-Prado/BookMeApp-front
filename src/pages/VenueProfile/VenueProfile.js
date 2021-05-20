@@ -54,7 +54,7 @@ function VenueProfile(props) {
                 </div>
            </div>
            <div className="right-side">
-           <img className="venue" src={venue} alt="venue" />   
+           <img className="venue" src={props.user.image} alt="venue" />   
            </div>
            <div>
                <p>Bookings</p>
